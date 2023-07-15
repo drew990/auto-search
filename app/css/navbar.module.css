@@ -1,10 +1,22 @@
-.navFlex{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+.NavBar {
+  width: 70%;
+  padding: 0.25rem 2rem;
+  background-color: var(--primary-background-color);
+  box-shadow: var(--standard-box-shadow);
+  border: var(--standard-border);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.navFlex h4{
-    padding: 5px 0;
+.navFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navFlex h4 {
+  padding: 5px 0;
 }
