@@ -43,11 +43,14 @@ a {
 
 nav {
   width: 100%;
-  margin: 3rem auto;
+  margin: 1rem auto;
   position: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: var(--standard-timing);
+  z-index: 999;
 }
 
 h1 {
@@ -90,7 +93,8 @@ footer {
   width: 100%;
   background-color: var(--secondary-background-color);
   color: var(--secondary-text-color);
-  padding: 5rem;
+  padding: 1rem 5rem 3rem 5rem;
+  flex-direction: column;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,6 +118,7 @@ form input {
   font-weight: 600;
   margin: 1rem 0;
   transition: var(--standard-timing);
+  text-align: center;
 }
 
 input:focus {
@@ -133,4 +138,8 @@ button {
   font-size: 16px;
   font-weight: 500;
   color: var(--secondary-text-color);
+}
+
+button:active{
+  scale: 0.9;
 }

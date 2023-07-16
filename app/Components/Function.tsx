@@ -1,16 +1,22 @@
+'use client'
 import Image from "next/image";
 import styles from "../Css/page.module.css";
 import Vin from "../Image/FunctionLogo/Vin.png";
 import Listing from "../Image/FunctionLogo/List.png";
 import Car from "../Image/FunctionLogo/Car.png";
+import { useRouter } from "next/router";
 
 export default function displayFunction() {
+  // const router = useRouter();
+
   return (
     <div className={styles.centerFlex}>
       <div className={styles.cards}>
+        <a href="/Pages/VinDecoder">
         <div className={styles.ImgCards}>
           <Image src={Vin} alt="Vin" width={50} height={50} layout="fixed" />
         </div>
+        </a>
         <p>We send you details of the input Vin</p>
       </div>
       <div className={styles.cards}>

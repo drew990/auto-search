@@ -32,3 +32,21 @@
   align-items: center;
   background: linear-gradient(315deg, #00d5e0, #09c38e);
 }
+
+.container{
+  padding: 5rem;
+}
+
+.footerDisplay{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+  flex: 1;
+}
+
+.footerDisplay a{
+  padding: 0.25rem;
+}
