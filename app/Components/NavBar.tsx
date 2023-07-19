@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "../Css/navbar.module.css";
-import NavBarLogo from "../Image/NavLogo/AutoSearch.png"
+import NavBarLogo from "../Image/NavLogo/AutoSearch.png";
 import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
@@ -12,15 +12,17 @@ export default function NavBar() {
   return (
     <nav>
       <div className={styles.NavBar}>
-        <div className={styles.navFlex} style={{width: "100%"}}>
-          <Image src= {NavBarLogo} alt="Auto Search" width={150} />
-          <Hamburger toggled={isOpen} toggle={setIsOpen} rounded/>
+        <div className={styles.navFlex} style={{ width: "100%" }}>
+          <a style={{ margin: "0" }} href="/">
+            <Image src={NavBarLogo} alt="Auto Search" width={150} />
+          </a>
+          <Hamburger toggled={isOpen} toggle={setIsOpen} rounded />
         </div>
         {isOpen == true ? (
           <div className={styles.NavBarOpenMenu}>
-              <Link href={{pathname:"/VinDecoder"}}>Vin Decoder</Link>
-              <a>Listings</a>
-              <a>Make & Models</a>
+            <a href="/Pages/VinDecoder">Vin Decoder</a>
+            <a href="/Pages/Listings">Listings</a>
+            <a href="/Pages/MakeModels">Make & Models</a>
           </div>
         ) : (
           ""

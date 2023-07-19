@@ -1,5 +1,5 @@
 .NavBar {
-  width: 70%;
+  width: 50%;
   /* padding: 0.25rem 2rem; */
   background-color: var(--primary-background-color);
   box-shadow: var(--standard-box-shadow);
@@ -14,7 +14,7 @@
 .navFlex {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -22,7 +22,7 @@
   padding: 5px 0;
 }
 
-.NavBarOpenMenu{
+.NavBarOpenMenu {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -32,7 +32,7 @@
   text-align: center;
 }
 
-.NavBarOpenMenu a{
+.NavBarOpenMenu a {
   font-size: 18px;
   padding-bottom: 0.5rem;
 }

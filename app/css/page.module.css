@@ -33,11 +33,11 @@
   background: linear-gradient(315deg, #00d5e0, #09c38e);
 }
 
-.container{
+.container {
   padding: 5rem;
 }
 
-.footerDisplay{
+.footerDisplay {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -47,6 +47,99 @@
   flex: 1;
 }
 
-.footerDisplay a{
+.footerDisplay a {
   padding: 0.25rem;
+}
+
+.vinDecoderHero {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url(../Image/VinDecoderHero/NissianZ.png);
+  height: 65vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 1rem 0 2rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.VinCarNameSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  min-width: 350px;
+  margin: auto;
+}
+
+.VinCarNameInformation {
+  border: var(--standard-border);
+  box-shadow: var(--standard-box-shadow);
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 950px;
+  margin: 1.5rem auto;
+}
+
+.VinCarNameInformation p {
+  padding-bottom: 0.75rem;
+}
+
+.UnderConstructionBackground {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+/* .UnderConstructionBackground h1 {
+} */
+
+.closureBackgroundIcon {
+  width: 125px;
+  height: 125px;
+  border: var(--standard-border);
+  box-shadow: var(--standard-box-shadow);
+  transition: var(--standard-timing);
+  background: linear-gradient(315deg, var(--third-gradient-color), #931fff);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.listingsBackgroundHero {
+  padding: 8rem 2rem 2rem 2rem;
+  border: 2px solid;
+}
+
+.formListings {
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.formListings div {
+  display: flex;
+  width: 300px;
+}
+
+.formListings div input {
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.formListings .ImgCards {
+  margin-bottom: 0;
+  margin-right: 1.5rem;
 }

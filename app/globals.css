@@ -52,6 +52,10 @@ nav {
   transition: var(--standard-timing);
   z-index: 999;
 }
+nav a {
+  width: fit-content;
+  margin: auto;
+}
 
 h1 {
   margin: 0;
@@ -140,6 +144,11 @@ button {
   color: var(--secondary-text-color);
 }
 
-button:active{
+button:active {
   scale: 0.9;
+}
+
+section p {
+  font-size: 18px;
+  font-weight: 500;
 }
