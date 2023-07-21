@@ -8,7 +8,7 @@ export default function UnderConstruction() {
       <div className={styles.closureBackgroundIcon}>
         <Image src={close} alt="UNDER CONSTRUCTION" width={100} height={100} />
       </div>
-      <h1>This Website is Currently Under Construction</h1>
+      <h1>This Page is Currently Under Construction</h1>
     </div>
   );
 }

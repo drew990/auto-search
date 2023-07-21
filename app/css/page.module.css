@@ -20,6 +20,37 @@
   scale: 1.05;
 }
 
+.styleCards {
+  padding: 2rem;
+  box-shadow: var(--standard-box-shadow);
+  border-radius: 1rem;
+  margin: 2rem auto;
+  transition: var(--standard-timing);
+  max-width: 700px;
+  width: 100%;
+  min-width: 350px;
+}
+
+.styleCards ul {
+  list-style-type: none;
+}
+
+.styleCards ul li {
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
+  border: var(--standard-border);
+  border-radius: 1rem;
+  background: linear-gradient(315deg, #931fff, #3872e5);
+  color: var(--secondary-text-color);
+}
+
+.column-list {
+  columns: 125px;
+  margin: auto;
+  text-align: center;
+}
+
 .ImgCards {
   border: var(--standard-border);
   box-shadow: var(--standard-box-shadow);

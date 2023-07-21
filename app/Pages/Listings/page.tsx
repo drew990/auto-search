@@ -7,7 +7,7 @@ import radius from "../../Image/ListingsLogo/radar.png";
 import { useState } from "react";
 
 export default function listing() {
-  const [valueRange, setValueRange] = useState(2016);
+  const [valueRange, setValueRange] = useState(25);
 
   function handleChange(e) {
     setValueRange(e.target.value);
@@ -36,16 +36,18 @@ export default function listing() {
           <div className={styles.ImgCards}>
             <Image src={radius} alt="R" width={50} height={50} layout="fixed" />
           </div>
-          <p>Year: {valueRange}</p>
-          <input
-            type="range"
-            min="2016"
-            max="2022"
-            step="1"
-            value={valueRange}
-            onChange={handleChange}
-            required
-          />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <p>Radius: {valueRange}</p>
+            <input
+              type="range"
+              min="25"
+              max="250"
+              step="25"
+              value={valueRange}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
       </form>
     </div>
