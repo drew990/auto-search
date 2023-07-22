@@ -13,3 +13,24 @@
   background-size: cover;
   color: var(--secondary-text-color);
 }
+
+.darkBackground {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+}
+
+.popupBackground {
+  position: sticky;
+  top: 20%;
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
+  padding: 1.5rem;
+  border: var(--standard-border);
+  border-radius: 1rem;
+  box-shadow: var(--standard-box-shadow);
+  width: 400px;
+  margin: auto;
+}

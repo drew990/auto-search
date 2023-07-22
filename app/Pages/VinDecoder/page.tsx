@@ -84,13 +84,54 @@ export default function VinDecoder() {
               </h2>
               <div className={styles.VinCarNameInformation}>
                 <p>Body Type: {vinData.categories.vehicleType}</p>
+                <p>Transmission Layout: {vinData.drivenWheels}</p>
                 <p>HP: {vinData.engine.horsepower} </p>
-                <p>
-                  MPG: {vinData.mpg.city} City / {vinData.mpg.highway} Highway
+                <p style={{ display: "flex" }}>
+                  MPG:
+                  {vinData.mpg.city ? (
+                    <p style={{ padding: "0" }}> {vinData.mpg.city} City </p>
+                  ) : (
+                    ""
+                  )}
+                  {vinData.mpg.highway ? (
+                    <p>{vinData.mpg.highway} /Highway </p>
+                  ) : (
+                    ""
+                  )}
                 </p>
                 <p>Engine Gas Type: {vinData.engine.type} </p>
-                <p>Transmission: {vinData.transmission.transmissionType}</p>
-                {/* <p>Starting MSRP: ${vinData.price.baseMsrp.toLocaleString()}</p> */}
+                <p>
+                  {vinData.transmission.transmissionType ? (
+                    <p>Transmission: {vinData.transmission.transmissionType}</p>
+                  ) : (
+                    ""
+                  )}
+                </p>
+                <p>
+                  {/* {vinData.price.baseMsrp != null ? (
+                    <p>
+                      Starting MSRP: ${vinData.price.baseMsrp.toLocaleString()}
+                    </p>
+                  ) : (
+                    ""
+                  )} */}
+                </p>
+              </div>
+            </section>
+            <section>
+              Nerd Stats
+              <div>
+                <p>Cylinders: {vinData.engine.cylinder}</p>
+                <p>Engine Layout: {vinData.engine.configuration}</p>
+                <p>Gas Detail: {vinData.engine.fuelType}</p>
+                <p>Torque: {vinData.engine.torque}</p>
+                <p>Valves: {vinData.engine.totalValves}</p>
+                <p>
+                  Manufacturer Engine Code:
+                  {vinData.engine.manufacturerEngineCode}
+                </p>
+                <p>Compression Ratio: {vinData.engine.compressionRatio}</p>
+                <p>Gears: {vinData.transmission.numberOfSpeeds}</p>
               </div>
             </section>
             <div>
@@ -131,7 +172,17 @@ export default function VinDecoder() {
                 </div>
               ))}
 
-              <h1>Extra Features</h1>
+              <h1>Trim Options</h1>
+              {vinData.years.map((year) => (
+                <div key={year.id}>
+                  {year.styles.map((style) => (
+                    <div key={style.id}>
+                      <h3>{style.trim}</h3>
+                      <p>{style.name}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
               <ul>
                 {/* {vinData.options.map((Safety) => (
                   <li>{Safety.name}</li>
