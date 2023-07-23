@@ -211,3 +211,12 @@ section p {
   font-size: 18px;
   font-weight: 500;
 }
+
+footer a{
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  transition: var(--standard-timing);
+}
+footer a:hover{
+  color: #fff;
+}

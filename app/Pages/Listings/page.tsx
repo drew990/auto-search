@@ -1,10 +1,11 @@
 "use client";
-import Image from "next/image";
-import styles from "../../Css/page.module.css";
-import city from "../../Image/ListingsLogo/building.png";
-import state from "../../Image/ListingsLogo/country.png";
-import radius from "../../Image/ListingsLogo/radar.png";
+// import Image from "next/image";
+// import styles from "../../Css/page.module.css";
+// import city from "../../Image/ListingsLogo/building.png";
+// import state from "../../Image/ListingsLogo/country.png";
+// import radius from "../../Image/ListingsLogo/radar.png";
 import { useState } from "react";
+import UnderConstruction from "@/app/Components/UnderConstruction";
 
 export default function listing() {
   const [valueRange, setValueRange] = useState(25);
@@ -16,7 +17,8 @@ export default function listing() {
 
   return (
     <div>
-      <div className={styles.listingsBackgroundHero}>
+      <UnderConstruction />
+      {/* <div className={styles.listingsBackgroundHero}>
         <h1>Find Listings In Your Area</h1>
       </div>
       <form className={styles.formListings}>
@@ -49,7 +51,7 @@ export default function listing() {
             />
           </div>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }

@@ -15,7 +15,8 @@ export default function displayFunction() {
         <div className={styles.ImgCards}>
           <Image src={Vin} alt="Vin" width={50} height={50} layout="fixed" />
         </div>
-        <p>We send you details of the input Vin</p>
+        <h3 style={{"textAlign" : "center"}}>Vin Decoder</h3>
+        <p style={{"textAlign" : "center"}}>We send you details of the input Vin</p>
       </a>
       <a href="/Pages/Listings" className={styles.cards}>
         <div className={styles.ImgCards}>
@@ -27,13 +28,15 @@ export default function displayFunction() {
             layout="fixed"
           />
         </div>
-        <p>Checkout some listings in your area</p>
+        <h3 style={{"textAlign" : "center"}}>Listings</h3>
+        <p style={{"textAlign" : "center"}}>Checkout some listings in your area</p>
       </a>
       <a href="/Pages/MakeModels" className={styles.cards}>
         <div className={styles.ImgCards}>
           <Image src={Car} alt="Vin" width={50} height={50} layout="fixed" />
         </div>
-        <p>
+        <h3 style={{"textAlign" : "center"}}>Make & Models</h3>
+        <p style={{"textAlign" : "center"}}>
           Have questions about a make and model? We will send you info about it
         </p>
       </a>

@@ -24,13 +24,29 @@
 
 .popupBackground {
   position: sticky;
-  top: 20%;
+  top: 25%;
   background: var(--primary-background-color);
   color: var(--primary-text-color);
   padding: 1.5rem;
   border: var(--standard-border);
   border-radius: 1rem;
   box-shadow: var(--standard-box-shadow);
-  width: 400px;
-  margin: auto;
+  min-width: 350px;
+  width: 90%;
+  max-width: 700px;
+  margin:   auto;
+  text-align: left;
+}
+.popupBackground h2{
+  text-align: center;
+  padding-bottom: 1.25rem;
+}
+
+.popupBackground p {
+  padding-bottom: 0.25rem;
+}
+
+.exit{
+  position: absolute;
+  cursor: pointer;
 }
