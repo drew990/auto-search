@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Auto Search Project
+## Description
+I've been working on a project that allows users to input a VIN number and receive information about the car. Additionally, users can search for car listings in their area to find the perfect vehicle for them. The website is built on Next.js and coded in TypeScript, and it utilizes the Auto Dev API to provide accurate and up-to-date information.
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+* [How to Install and Run](#Installation-and-Usage)
+* [Project Status](#Project-Status)
+* [Credit](#Credit)
+* [Questions](#Questions)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Installation and Usage
+1) Clone the repository to your prefer local system
+2) Once open in visual studios, open up cmd amd install the packages with the following command
+`npm i`
+3) When done downloading the packages, you can now run the code with: `npm run dev`. It'll run on [http://localhost:3000](http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Status
+Currently the project is not yet fully finish as there are still different conditions that need to be dealt with first. The listings page currently is still yet to be functional but has some basic functions is working. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Quick Breakdown:
+#### Vin Decoder Status (High Priority)
+* Render conditions with a bad request needs to be fixed
+* Designing the nerd stats isn't complete
+* Making a responsive CSS has not started
 
-## Learn More
+#### Listings (Low Priority)
+* Literality about almost everything needs to be worked on still
 
-To learn more about Next.js, take a look at the following resources:
+#### Make and Model (No Priority)
+* Has not been touch yet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Credit
+Made by Andrew Banagas 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Help buy me a coffee??? 
+https://bmc.link/banagas25n
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Questions
+If you have any questions about the repository or about the website contact me at: andrewbanagas40@gmail.com
