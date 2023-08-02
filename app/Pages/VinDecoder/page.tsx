@@ -1,38 +1,37 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "../../css/page.module.css";
 import Image from "next/image";
 import car from "../../Image/FunctionLogo/Car.png";
 import cloud from "../../Image/VinDecoder/cloud.png";
 import color from "../../Image/VinDecoder/color.png";
-
-async function getAPI(Vin) {
-  const res = await fetch(
-    `https://auto.dev/api/vin/${Vin}?apikey=${process.env.AUTH}==`
-  );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    return;
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
+import { NotificationManager } from "react-notifications";
 
 export default function VinDecoder() {
   const [vinData, setVinData] = useState();
   const [vinInput, setVinInput] = useState("");
 
   async function fetchVin() {
-    const Vin = vinInput;
-    const data = await getAPI(Vin);
-    setVinData(data);
+    if (vinInput != "") {
+      const res = await fetch(
+        `https://auto.dev/api/vin/${vinInput}?apikey=${process.env.AUTH}==`
+      );
 
-    console.log("VIN DATA", vinData);
+      // console.log(res);
+
+      const data = await res.json();
+
+      console.log(data.message);
+
+      if (data.message) {
+        NotificationManager.error("Couldn't Find Vin!", "Error", 5000);
+      } else {
+        setVinData(data);
+      }
+    } else {
+      NotificationManager.error("Please Enter In Vin", "Error", 5000);
+    }
+
     return;
   }
 
