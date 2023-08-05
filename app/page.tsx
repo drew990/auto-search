@@ -4,6 +4,7 @@ import styles from "./Css/page.module.css";
 import Hero from "./Components/Hero";
 import Function from "./Components/Function";
 import Footer from "./Components/Footer";
+import AboutMe from "./Components/AboutMe";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <NavBar />
       <Hero />
       <Function />
+      <AboutMe />
       <Footer />
     </main>
   );

@@ -202,6 +202,9 @@ button {
   font-weight: 500;
   color: var(--secondary-text-color);
 }
+button:hover {
+  scale: 1.05;
+}
 
 button:active {
   scale: 0.9;
@@ -210,13 +213,21 @@ button:active {
 section p {
   font-size: 18px;
   font-weight: 500;
+  padding-bottom: 0.75rem;
 }
 
-footer a{
+footer a {
   cursor: pointer;
   color: rgba(255, 255, 255, 0.75);
   transition: var(--standard-timing);
 }
-footer a:hover{
+footer a:hover {
   color: #fff;
+}
+
+@media (max-width: 500px) {
+  input {
+    min-width: 80%;
+    font-size: 16px;
+  }
 }

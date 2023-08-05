@@ -5,6 +5,8 @@ import Image from "next/image";
 import car from "../../Image/FunctionLogo/Car.png";
 import cloud from "../../Image/VinDecoder/cloud.png";
 import color from "../../Image/VinDecoder/color.png";
+import nerd from "../../Image/VinDecoder/nerd.png";
+import trim from "../../Image/VinDecoder/trim.png";
 import { NotificationManager } from "react-notifications";
 
 export default function VinDecoder() {
@@ -27,6 +29,7 @@ export default function VinDecoder() {
         NotificationManager.error("Couldn't Find Vin!", "Error", 5000);
       } else {
         setVinData(data);
+        console.log(vinData);
       }
     } else {
       NotificationManager.error("Please Enter In Vin", "Error", 5000);
@@ -57,7 +60,7 @@ export default function VinDecoder() {
         <button onClick={fetchVin}>Submit</button>
       </div>
       <div className={styles.container}>
-        <h1>Car Details Below</h1>
+        <h1 className={styles.headerGradient}>Car Details</h1>
         {vinData != null ? (
           <div>
             <section className={styles.VinCarNameSection}>
@@ -78,9 +81,6 @@ export default function VinDecoder() {
               </h1>
             </section>
             <section>
-              <h2 style={{ margin: "1rem 0", textAlign: "center" }}>
-                Basic Information
-              </h2>
               <div className={styles.VinCarNameInformation}>
                 <p>Body Type: {vinData.categories.vehicleType}</p>
                 <p>Transmission Layout: {vinData.drivenWheels}</p>
@@ -88,24 +88,28 @@ export default function VinDecoder() {
                 <p style={{ display: "flex" }}>
                   MPG:
                   {vinData.mpg.city ? (
-                    <p style={{ padding: "0" }}> {vinData.mpg.city} City </p>
+                    <p style={{ padding: "0" }}>
+                      &nbsp; {vinData.mpg.city} City{" "}
+                    </p>
                   ) : (
                     ""
                   )}
                   {vinData.mpg.highway ? (
-                    <p>{vinData.mpg.highway} /Highway </p>
+                    <p style={{ padding: "0" }}>
+                      &nbsp; / {vinData.mpg.highway} Highway
+                    </p>
                   ) : (
                     ""
                   )}
                 </p>
                 <p>Engine Gas Type: {vinData.engine.type} </p>
-                <p>
-                  {vinData.transmission.transmissionType ? (
-                    <p>Transmission: {vinData.transmission.transmissionType}</p>
-                  ) : (
-                    ""
-                  )}
-                </p>
+
+                {vinData.transmission.transmissionType ? (
+                  <p>Transmission: {vinData.transmission.transmissionType}</p>
+                ) : (
+                  ""
+                )}
+
                 <p>
                   {/* {vinData.price.baseMsrp != null ? (
                     <p>
@@ -118,10 +122,34 @@ export default function VinDecoder() {
               </div>
             </section>
             <section>
-              Nerd Stats
-              <div>
-                <p>Cylinders: {vinData.engine.cylinder}</p>
-                <p>Engine Layout: {vinData.engine.configuration}</p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "3.5rem 0",
+                }}
+              >
+                <div
+                  className={styles.ImgCards}
+                  style={{ margin: "0 1rem 0 0 " }}
+                >
+                  <Image
+                    src={nerd}
+                    alt="N"
+                    width={50}
+                    height={50}
+                    layout="fixed"
+                  />
+                </div>
+                <h2>Nerd Stats</h2>
+              </div>
+              <div className={` ${styles["styleCards"]}`}>
+                <p>
+                  Engine Layout: {vinData.engine.configuration}{" "}
+                  {vinData.engine.cylinder} Cylinders
+                </p>
                 <p>Gas Detail: {vinData.engine.fuelType}</p>
                 <p>Torque: {vinData.engine.torque}</p>
                 <p>Valves: {vinData.engine.totalValves}</p>
@@ -133,6 +161,7 @@ export default function VinDecoder() {
                 <p>Gears: {vinData.transmission.numberOfSpeeds}</p>
               </div>
             </section>
+            <h1 className={styles.headerGradient}>Extra Info</h1>
             <div>
               <div
                 style={{
@@ -163,7 +192,7 @@ export default function VinDecoder() {
                   <h3 style={{ textAlign: "center", marginBottom: "1rem" }}>
                     {color.category}
                   </h3>
-                  <ul className={` ${styles["column-list"]}`}>
+                  <ul className={` ${styles["row-list"]}`}>
                     {color.options.map((option) => (
                       <li key={option.id}>{option.name}</li>
                     ))}
@@ -171,15 +200,45 @@ export default function VinDecoder() {
                 </div>
               ))}
 
-              <h1>Trim Options</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "3.5rem 0",
+                }}
+              >
+                <div
+                  className={styles.ImgCards}
+                  style={{ margin: "0 1rem 0 0" }}
+                >
+                  <Image
+                    src={trim}
+                    alt="T"
+                    width={50}
+                    height={50}
+                    layout="fixed"
+                  />
+                </div>
+                <h2>Trim Options</h2>
+              </div>
               {vinData.years.map((year) => (
-                <div key={year.id}>
-                  {year.styles.map((style) => (
-                    <div key={style.id}>
-                      <h3>{style.trim}</h3>
-                      <p>{style.name}</p>
-                    </div>
-                  ))}
+                <div key={year.id} className={` ${styles["styleCards"]}`}>
+                  <ul
+                    className={` ${styles["row-list"]}`}
+                    style={{ flexDirection: "column" }}
+                  >
+                    {year.styles.map((style) => (
+                      <div key={style.id} style={{ paddingBottom: "1.5rem" }}>
+                        <h3 style={{ paddingBottom: "0.75rem" }}>
+                          Trim Name: {style.trim}
+                        </h3>
+                        <p>Style: {style.name}</p>
+                        <p>Body: {style.submodel.body}</p>
+                      </div>
+                    ))}
+                  </ul>
                 </div>
               ))}
               <ul>
@@ -194,7 +253,7 @@ export default function VinDecoder() {
             <h2>Enter in a Vin to get details</h2>
             <div
               className={styles.closureBackgroundIcon}
-              style={{ margin: "3rem auto 0 auto " }}
+              style={{ margin: "3rem auto 3rem auto " }}
             >
               <Image
                 src={cloud}

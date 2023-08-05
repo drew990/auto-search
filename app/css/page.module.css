@@ -6,14 +6,17 @@
 }
 
 .cards {
-  min-width: 300px;
-  max-width: 375px;
+  width: 450px;
   padding: 1rem;
   box-shadow: var(--standard-box-shadow);
   border-radius: 1rem;
   margin: 2rem auto;
-  height: 200px;
+  height: 250px;
   transition: var(--standard-timing);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cards:hover {
@@ -26,7 +29,7 @@
   border-radius: 1rem;
   margin: 2rem auto;
   transition: var(--standard-timing);
-  max-width: 700px;
+  max-width: 1000px;
   width: 100%;
   min-width: 350px;
 }
@@ -36,19 +39,25 @@
 }
 
 .styleCards ul li {
-  padding: 0.25rem;
-  margin-bottom: 0.25rem;
+  padding: 0.35rem;
+  margin: 0.25rem 0.3rem;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
   border: var(--standard-border);
   border-radius: 1rem;
   background: linear-gradient(315deg, #931fff, #3872e5);
   color: var(--secondary-text-color);
+  width: 100%;
+  height: 100%;
+  max-width: 225px;
+  text-align: center;
 }
 
-.column-list {
-  columns: 125px;
-  margin: auto;
-  text-align: center;
+.row-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .ImgCards {
@@ -66,6 +75,25 @@
 
 .container {
   padding: 5rem;
+}
+
+.headerGradient {
+  background: linear-gradient(
+    315deg,
+    var(--third-gradient-color),
+    var(--primary-gradient-color)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  width: fit-content;
+  margin: 3rem auto;
+  font-size: 56px;
+  /* padding-bottom: 2rem; */
+  /* background: linear-gradient(
+    315deg,
+    var(--third-gradient-color),
+    var(--primary-gradient-color) */
+  /* ); */
 }
 
 .footerDisplay {
@@ -126,6 +154,7 @@
   justify-content: center;
   align-items: center;
   height: 90vh;
+  text-align: center;
 }
 
 /* .UnderConstructionBackground h1 {
@@ -173,4 +202,60 @@
 .formListings .ImgCards {
   margin-bottom: 0;
   margin-right: 1.5rem;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRow .aboutMeImage {
+  width: fit-content;
+  height: 325px;
+  margin-right: 5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: var(--standard-border);
+  box-shadow: var(--standard-box-shadow);
+}
+
+.flexRow .aboutMeText {
+  width: 400px;
+  margin-left: 5rem;
+  text-align: center;
+}
+
+.aboutMeText button {
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .flexRow {
+    flex-direction: column;
+  }
+
+  .flexRow .aboutMeText {
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+  .flexRow .aboutMeImage {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    width: 85%;
+  }
+  .container {
+    padding: 0;
+    width: 90%;
+    margin: auto;
+  }
+  .flexRow .aboutMeText {
+    width: 90%;
+  }
 }
