@@ -3,7 +3,6 @@ import { useState } from "react";
 import styles from "../Css/navbar.module.css";
 import NavBarLogo from "../Image/NavLogo/AutoSearch.png";
 import Image from "next/image";
-import Link from "next/link";
 import Hamburger from "hamburger-react";
 
 export default function NavBar() {

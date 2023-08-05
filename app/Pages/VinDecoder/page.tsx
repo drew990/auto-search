@@ -7,7 +7,10 @@ import cloud from "../../Image/VinDecoder/cloud.png";
 import color from "../../Image/VinDecoder/color.png";
 import nerd from "../../Image/VinDecoder/nerd.png";
 import trim from "../../Image/VinDecoder/trim.png";
-import { NotificationManager } from "react-notifications";
+import {
+  NotificationManager,
+  NotificationContainer,
+} from "react-notifications";
 
 export default function VinDecoder() {
   const [vinData, setVinData] = useState();
@@ -44,6 +47,7 @@ export default function VinDecoder() {
 
   return (
     <div>
+      <NotificationContainer />
       <div className={`${styles["vinDecoderHero"]}`}>
         <h1>Vin Decoder</h1>
         {/* <form></form> */}

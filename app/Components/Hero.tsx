@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "../Css/hero.module.css";
 import X from "../Image/HeroImage/X.png";
 import Image from "next/image";
