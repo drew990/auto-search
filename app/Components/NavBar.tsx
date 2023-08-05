@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "../Css/navbar.module.css";
+import styles from "../CSS/navbar.module.css";
 import NavBarLogo from "../Image/NavLogo/AutoSearch.png";
 import Image from "next/image";
 import Hamburger from "hamburger-react";

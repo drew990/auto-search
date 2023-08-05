@@ -1,4 +1,3 @@
-import styles from "../../Css/page.module.css";
 import UnderConstruction from "@/app/Components/UnderConstruction";
 
 export default function MakeAndModels() {

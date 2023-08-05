@@ -10,10 +10,10 @@ import UnderConstruction from "@/app/Components/UnderConstruction";
 export default function listing() {
   const [valueRange, setValueRange] = useState(25);
 
-  function handleChange(e) {
-    setValueRange(e.target.value);
-    console.log(valueRange);
-  }
+  // function handleChange(e) {
+  //   setValueRange(e.target.value);
+  //   console.log(valueRange);
+  // }
 
   return (
     <div>
