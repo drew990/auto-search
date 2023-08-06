@@ -17,10 +17,10 @@ export default function AboutMe() {
             Hi there! My name is Andrew and I am a student web developer. I
             enjoy creating websites that are accessible to the public. I have
             been coding for a couple of years now and have made a variety of
-            functional websites besides this one. If you're interested, you can
-            find links to them on my GitHub account. Currently, I am pursuing my
-            associate's degree in computer science at Rio Hondo College. It's
-            been a challenging but rewarding journey so far!
+            functional websites besides this one. If you&apos;re interested, you
+            can find links to them on my GitHub account. Currently, I am
+            pursuing my associate&apos;s degree in computer science at Rio Hondo
+            College. It&apos;s been a challenging but rewarding journey so far!
           </p>
           <div
             style={{

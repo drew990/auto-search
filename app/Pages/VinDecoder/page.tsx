@@ -192,7 +192,10 @@ export default function VinDecoder() {
               </div>
 
               {vinData.colors.map((color) => (
-                <div className={` ${styles["styleCards"]}`}>
+                <div
+                  key={color.category}
+                  className={` ${styles["styleCards"]}`}
+                >
                   <h3 style={{ textAlign: "center", marginBottom: "1rem" }}>
                     {color.category}
                   </h3>

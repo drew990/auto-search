@@ -4,11 +4,11 @@
 // import city from "../../Image/ListingsLogo/building.png";
 // import state from "../../Image/ListingsLogo/country.png";
 // import radius from "../../Image/ListingsLogo/radar.png";
-import { useState } from "react";
+// import { useState } from "react";
 import UnderConstruction from "@/app/Components/UnderConstruction";
 
 export default function listing() {
-  const [valueRange, setValueRange] = useState(25);
+  // const [valueRange, setValueRange] = useState(25);
 
   // function handleChange(e) {
   //   setValueRange(e.target.value);
