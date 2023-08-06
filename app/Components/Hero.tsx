@@ -4,6 +4,7 @@ import style from "@/app/styles/hero.module.css";
 import X from "../Image/HeroImage/X.png";
 import Image from "next/image";
 import { NotificationManager } from "react-notifications";
+// const NotificationManager = require("react-notifications");
 
 export default function Hero() {
   const [isOpen, setIsOpen] = useState(false);
