@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../Css/page.module.css";
+import styles from "@/app/styles/page.module.css";
 import close from "../Image/UnderConstructionLogo/white-closure.png";
 
 export default function UnderConstruction() {
