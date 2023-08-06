@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Css/page.module.css";
+import styles from "@/app/styles/page.module.css";
 import profile from "../Image/AboutMe/Profile.jpg";
 import Image from "next/image";
 

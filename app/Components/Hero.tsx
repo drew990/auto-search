@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import style from "../CSS/hero.module.css";
+import style from "@/app/styles/hero.module.css";
 import X from "../Image/HeroImage/X.png";
 import Image from "next/image";
 import { NotificationManager } from "react-notifications";

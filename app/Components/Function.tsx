@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "../CSS/page.module.css";
+import styles from "@/app/styles/page.module.css";
 import Vin from "../Image/FunctionLogo/Vin.png";
 import Listing from "../Image/FunctionLogo/List.png";
 import Car from "../Image/FunctionLogo/Car.png";

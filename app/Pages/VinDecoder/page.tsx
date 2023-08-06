@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "../../CSS/page.module.css";
+import styles from "@/app/CSS/page.module.css";
 import Image from "next/image";
 import car from "../../Image/FunctionLogo/Car.png";
 import cloud from "../../Image/VinDecoder/cloud.png";
