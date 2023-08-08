@@ -13,7 +13,7 @@ import {
 } from "react-notifications";
 
 export default function VinDecoder() {
-  const [vinData, setVinData] = useState();
+  const [vinData, setVinData] = useState<any>();
   const [vinInput, setVinInput] = useState("");
 
   async function fetchVin() {
@@ -41,7 +41,7 @@ export default function VinDecoder() {
     return;
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVinInput(e.target.value);
   };
 
@@ -81,35 +81,38 @@ export default function VinDecoder() {
                 />
               </div>
               <h1>
-                {vinData.years[0].year} {vinData.make.name} {vinData.model.name}
+                {vinData["years"][0]["year"]} {vinData["make"]["name"]}{" "}
+                {vinData["model"]["name"]}
               </h1>
             </section>
             <section>
               <div className={styles.VinCarNameInformation}>
-                <p>Body Type: {vinData.categories.vehicleType}</p>
-                <p>Transmission Layout: {vinData.drivenWheels}</p>
-                <p>HP: {vinData.engine.horsepower} </p>
+                <p>Body Type: {vinData["categories"]["vehicleType"]}</p>
+                <p>Transmission Layout: {vinData["drivenWheels"]}</p>
+                <p>HP: {vinData["engine"]["horsepower"]} </p>
                 <p style={{ display: "flex" }}>
                   MPG:
-                  {vinData.mpg.city ? (
+                  {vinData["mpg"]["city"] ? (
                     <p style={{ padding: "0" }}>
-                      &nbsp; {vinData.mpg.city} City{" "}
+                      &nbsp; {vinData["mpg"]["city"]} City{" "}
                     </p>
                   ) : (
                     ""
                   )}
-                  {vinData.mpg.highway ? (
+                  {vinData["mpg"]["highway"] ? (
                     <p style={{ padding: "0" }}>
-                      &nbsp; / {vinData.mpg.highway} Highway
+                      &nbsp; / {vinData["mpg"]["highway"]} Highway
                     </p>
                   ) : (
                     ""
                   )}
                 </p>
-                <p>Engine Gas Type: {vinData.engine.type} </p>
+                <p>Engine Gas Type: {vinData["engine"]["type"]} </p>
 
-                {vinData.transmission.transmissionType ? (
-                  <p>Transmission: {vinData.transmission.transmissionType}</p>
+                {vinData["transmission"]["transmissionType"] ? (
+                  <p>
+                    Transmission: {vinData["transmission"]["transmissionType"]}
+                  </p>
                 ) : (
                   ""
                 )}
@@ -151,18 +154,20 @@ export default function VinDecoder() {
               </div>
               <div className={` ${styles["styleCards"]}`}>
                 <p>
-                  Engine Layout: {vinData.engine.configuration}{" "}
-                  {vinData.engine.cylinder} Cylinders
+                  Engine Layout: {vinData["engine"]["configuration"]}{" "}
+                  {vinData["engine"]["cylinder"]} Cylinders
                 </p>
-                <p>Gas Detail: {vinData.engine.fuelType}</p>
-                <p>Torque: {vinData.engine.torque}</p>
-                <p>Valves: {vinData.engine.totalValves}</p>
+                <p>Gas Detail: {vinData["engine"]["fuelType"]}</p>
+                <p>Torque: {vinData["engine"]["torque"]}</p>
+                <p>Valves: {vinData["engine"]["totalValves"]}</p>
                 <p>
                   Manufacturer Engine Code:
-                  {vinData.engine.manufacturerEngineCode}
+                  {vinData["engine"]["manufacturerEngineCode"]}
                 </p>
-                <p>Compression Ratio: {vinData.engine.compressionRatio}</p>
-                <p>Gears: {vinData.transmission.numberOfSpeeds}</p>
+                <p>
+                  Compression Ratio: {vinData["engine"]["compressionRatio"]}
+                </p>
+                <p>Gears: {vinData["transmission"]["numberOfSpeeds"]}</p>
               </div>
             </section>
             <h1 className={styles.headerGradient}>Extra Info</h1>
@@ -191,7 +196,7 @@ export default function VinDecoder() {
                 <h2>Colors Options</h2>
               </div>
 
-              {vinData.colors.map((color) => (
+              {vinData.colors.map((color: any) => (
                 <div
                   key={color.category}
                   className={` ${styles["styleCards"]}`}
@@ -200,7 +205,7 @@ export default function VinDecoder() {
                     {color.category}
                   </h3>
                   <ul className={` ${styles["row-list"]}`}>
-                    {color.options.map((option) => (
+                    {color.options.map((option: any) => (
                       <li key={option.id}>{option.name}</li>
                     ))}
                   </ul>
@@ -230,13 +235,13 @@ export default function VinDecoder() {
                 </div>
                 <h2>Trim Options</h2>
               </div>
-              {vinData.years.map((year) => (
+              {vinData.years.map((year: any) => (
                 <div key={year.id} className={` ${styles["styleCards"]}`}>
                   <ul
                     className={` ${styles["row-list"]}`}
                     style={{ flexDirection: "column" }}
                   >
-                    {year.styles.map((style) => (
+                    {year.styles.map((style: any) => (
                       <div key={style.id} style={{ paddingBottom: "1.5rem" }}>
                         <h3 style={{ paddingBottom: "0.75rem" }}>
                           Trim Name: {style.trim}

@@ -1,10 +1,9 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "@/app/styles/hero.module.css";
 import X from "../Image/HeroImage/X.png";
 import Image from "next/image";
 import { NotificationManager } from "react-notifications";
-// const NotificationManager = require("react-notifications");
 
 export default function Hero() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +34,7 @@ export default function Hero() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVinInput(e.target.value);
   };
 
@@ -54,7 +53,7 @@ export default function Hero() {
         onChange={handleChange}
       />
       <button onClick={popup}>Search Car</button>
-      {isOpen == true ? (
+      {isOpen == true && vinData ? (
         <div className={style.darkBackground}>
           <div className={style.popupBackground}>
             {/* <PopupComponent vinData={vinData} /> */}
@@ -71,19 +70,35 @@ export default function Hero() {
               </div>
             </div>
             <h2>
-              {vinData.years[0].year} {vinData.make.name} {vinData.model.name}
+              {vinData["years"][0]["year"]} {vinData["make"]["name"]}{" "}
+              {vinData["model"]["name"]}
             </h2>
-            <p>Full Description Name: {vinData.years[0].styles[0].name}</p>
-            <p>Trim: {vinData.years[0].styles[0].trim}</p>
-            <p>Body Type: {vinData.years[0].styles[0].submodel.body}</p>
-            <p style={{ display: "flex" }}>
-              MPG:&nbsp;{vinData.mpg.city ? <p>{vinData.mpg.city} City</p> : ""}{" "}
-              {vinData.mpg.city ? <p> / {vinData.mpg.highway} Highway</p> : ""}{" "}
+            <p>
+              Full Description Name: {vinData["years"][0]["styles"][0]["name"]}
             </p>
-            <p>HP: {vinData.engine.horsepower}</p>
-            <p>Fuel Take: {vinData.engine.fuelType}</p>
-            <p>Transmission Type: {vinData.transmission.transmissionType}</p>
-            <p>Transmission Layout: {vinData.drivenWheels}</p>
+            <p>Trim: {vinData["years"][0]["styles"][0]["trim"]}</p>
+            <p>
+              Body Type: {vinData["years"][0]["styles"][0]["submodel"]["body"]}
+            </p>
+            <p style={{ display: "flex" }}>
+              MPG:&nbsp;
+              {vinData["mpg"]["city"] ? (
+                <p>{vinData["mpg"]["city"]} City</p>
+              ) : (
+                ""
+              )}{" "}
+              {vinData["mpg"]["highway"] ? (
+                <p> / {vinData["mpg"]["highway"]} Highway</p>
+              ) : (
+                ""
+              )}{" "}
+            </p>
+            <p>HP: {vinData["engine"]["horsepower"]}</p>
+            <p>Fuel Take: {vinData["engine"]["fuelType"]}</p>
+            <p>
+              Transmission Type: {vinData["transmission"]["transmissionType"]}
+            </p>
+            <p>Transmission Layout: {vinData["drivenWheels"]}</p>
           </div>
         </div>
       ) : (
