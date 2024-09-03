@@ -8,6 +8,7 @@
   --standard-box-shadow: -1px 1px 15px rgba(0, 0, 0, 0.45);
   --standard-border: 2px solid #dedede;
   --standard-timing: 0.3s ease-in-out;
+  --standard-border-radius: 5px;
   --secondary-background-color: #931fff;
   --secondary-color: #fff;
   --primary-gradient-color: #00d5e0;
@@ -39,6 +40,27 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+aside {
+  min-width: 325px;
+  max-width: 400px;
+  width: 80%;
+  padding: 1rem;
+}
+
+aside h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+aside p {
+  opacity: 0.7;
+}
+
+aside input {
+  width: fit-content;
 }
 
 nav {
@@ -120,7 +142,7 @@ form {
 }
 
 input {
-  min-width: 375px;
+  min-width: 300px;
   padding: 0.75rem 1rem;
   border: var(--standard-border);
   box-shadow: var(--standard-box-shadow);
@@ -146,6 +168,7 @@ input[type="range"] {
   background: transparent;
   cursor: pointer;
   margin: 0;
+  border: none;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -181,7 +204,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 100%;
   height: 1.2rem;
   width: 1.2rem;
-  border: 2px solid #cecece;
+  /* border: 2px solid #cecece; */
 }
 
 input[type="range"]:focus {
@@ -201,6 +224,7 @@ button {
   font-size: 16px;
   font-weight: 500;
   color: var(--secondary-text-color);
+  cursor: pointer;
 }
 button:hover {
   scale: 1.05;
@@ -213,7 +237,8 @@ button:active {
 section p {
   font-size: 18px;
   font-weight: 500;
-  padding-bottom: 0.75rem;
+  padding: 0.75rem 0;
+  text-align: center;
 }
 
 footer a {
@@ -223,6 +248,20 @@ footer a {
 }
 footer a:hover {
   color: #fff;
+}
+
+select {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid var(--secondary-gradient-color);
+  /* border-radius: 1rem; */
+  transition: var(--standard-timing);
+}
+
+select:focus {
+  border: 2px solid #666666;
 }
 
 @media (max-width: 500px) {

@@ -12,6 +12,9 @@ import {
   NotificationContainer,
 } from "react-notifications";
 
+// Components Decoder
+import BasicInfo from "@/app/Components/vindecoder/index";
+
 export default function VinDecoder() {
   const [vinData, setVinData] = useState<any>();
   const [vinInput, setVinInput] = useState("");
@@ -65,200 +68,12 @@ export default function VinDecoder() {
       </div>
       <div className={styles.container}>
         <h1 className={styles.headerGradient}>Car Details</h1>
+
         {vinData != null ? (
           <div>
             <section className={styles.VinCarNameSection}>
-              <div
-                className={styles.ImgCards}
-                style={{ margin: "0 1rem 0 0 " }}
-              >
-                <Image
-                  src={car}
-                  alt="C"
-                  width={50}
-                  height={50}
-                  layout="fixed"
-                />
-              </div>
-              <h1>
-                {vinData["years"][0]["year"]} {vinData["make"]["name"]}{" "}
-                {vinData["model"]["name"]}
-              </h1>
+              <BasicInfo data={vinData} />
             </section>
-            <section>
-              <div className={styles.VinCarNameInformation}>
-                <p>Body Type: {vinData["categories"]["vehicleType"]}</p>
-                <p>Transmission Layout: {vinData["drivenWheels"]}</p>
-                <p>HP: {vinData["engine"]["horsepower"]} </p>
-                <p style={{ display: "flex" }}>
-                  MPG:
-                  {vinData["mpg"]["city"] ? (
-                    <p style={{ padding: "0" }}>
-                      &nbsp; {vinData["mpg"]["city"]} City{" "}
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                  {vinData["mpg"]["highway"] ? (
-                    <p style={{ padding: "0" }}>
-                      &nbsp; / {vinData["mpg"]["highway"]} Highway
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                </p>
-                <p>Engine Gas Type: {vinData["engine"]["type"]} </p>
-
-                {vinData["transmission"]["transmissionType"] ? (
-                  <p>
-                    Transmission: {vinData["transmission"]["transmissionType"]}
-                  </p>
-                ) : (
-                  ""
-                )}
-
-                <p>
-                  {/* {vinData.price.baseMsrp != null ? (
-                    <p>
-                      Starting MSRP: ${vinData.price.baseMsrp.toLocaleString()}
-                    </p>
-                  ) : (
-                    ""
-                  )} */}
-                </p>
-              </div>
-            </section>
-            <section>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  margin: "3.5rem 0",
-                }}
-              >
-                <div
-                  className={styles.ImgCards}
-                  style={{ margin: "0 1rem 0 0 " }}
-                >
-                  <Image
-                    src={nerd}
-                    alt="N"
-                    width={50}
-                    height={50}
-                    layout="fixed"
-                  />
-                </div>
-                <h2>Nerd Stats</h2>
-              </div>
-              <div className={` ${styles["styleCards"]}`}>
-                <p>
-                  Engine Layout: {vinData["engine"]["configuration"]}{" "}
-                  {vinData["engine"]["cylinder"]} Cylinders
-                </p>
-                <p>Gas Detail: {vinData["engine"]["fuelType"]}</p>
-                <p>Torque: {vinData["engine"]["torque"]}</p>
-                <p>Valves: {vinData["engine"]["totalValves"]}</p>
-                <p>
-                  Manufacturer Engine Code:
-                  {vinData["engine"]["manufacturerEngineCode"]}
-                </p>
-                <p>
-                  Compression Ratio: {vinData["engine"]["compressionRatio"]}
-                </p>
-                <p>Gears: {vinData["transmission"]["numberOfSpeeds"]}</p>
-              </div>
-            </section>
-            <h1 className={styles.headerGradient}>Extra Info</h1>
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  margin: "3.5rem 0",
-                }}
-              >
-                <div
-                  className={styles.ImgCards}
-                  style={{ margin: "0 1rem 0 0" }}
-                >
-                  <Image
-                    src={color}
-                    alt="C"
-                    width={50}
-                    height={50}
-                    layout="fixed"
-                  />
-                </div>
-                <h2>Colors Options</h2>
-              </div>
-
-              {vinData.colors.map((color: any) => (
-                <div
-                  key={color.category}
-                  className={` ${styles["styleCards"]}`}
-                >
-                  <h3 style={{ textAlign: "center", marginBottom: "1rem" }}>
-                    {color.category}
-                  </h3>
-                  <ul className={` ${styles["row-list"]}`}>
-                    {color.options.map((option: any) => (
-                      <li key={option.id}>{option.name}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  margin: "3.5rem 0",
-                }}
-              >
-                <div
-                  className={styles.ImgCards}
-                  style={{ margin: "0 1rem 0 0" }}
-                >
-                  <Image
-                    src={trim}
-                    alt="T"
-                    width={50}
-                    height={50}
-                    layout="fixed"
-                  />
-                </div>
-                <h2>Trim Options</h2>
-              </div>
-              {vinData.years.map((year: any) => (
-                <div key={year.id} className={` ${styles["styleCards"]}`}>
-                  <ul
-                    className={` ${styles["row-list"]}`}
-                    style={{ flexDirection: "column" }}
-                  >
-                    {year.styles.map((style: any) => (
-                      <div key={style.id} style={{ paddingBottom: "1.5rem" }}>
-                        <h3 style={{ paddingBottom: "0.75rem" }}>
-                          Trim Name: {style.trim}
-                        </h3>
-                        <p>Style: {style.name}</p>
-                        <p>Body: {style.submodel.body}</p>
-                      </div>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-              <ul>
-                {/* {vinData.options.map((Safety) => (
-                  <li>{Safety.name}</li>
-                ))} */}
-              </ul>
-            </div>
           </div>
         ) : (
           <div style={{ textAlign: "center" }}>
@@ -281,3 +96,199 @@ export default function VinDecoder() {
     </div>
   );
 }
+
+// {/* <div
+// className={styles.ImgCards}
+// style={{ margin: "0 1rem 0 0 " }}
+// >
+// <Image
+//   src={car}
+//   alt="C"
+//   width={50}
+//   height={50}
+//   layout="fixed"
+// />
+// </div>
+// {/* <BasicInfo data={vinData} /> */}
+// <h1>
+// {vinData["years"][0]["year"]} {vinData["make"]["name"]}{" "}
+// {vinData["model"]["name"]}
+// </h1>
+// </section>
+// <section>
+// <div className={styles.VinCarNameInformation}>
+// <div className={styles.VinCarBorder}>
+//   <p>Body Type: {vinData["categories"]["vehicleType"]}</p>
+// </div>
+// <p>Transmission Layout: {vinData["drivenWheels"]}</p>
+// <p>HP: {vinData["engine"]["horsepower"]} </p>
+// <p style={{ display: "flex" }}>
+//   MPG:
+//   {vinData["mpg"]["city"] ? (
+//     <p style={{ padding: "0" }}>
+//       &nbsp; {vinData["mpg"]["city"]} City{" "}
+//     </p>
+//   ) : (
+//     ""
+//   )}
+//   {vinData["mpg"]["highway"] ? (
+//     <p style={{ padding: "0" }}>
+//       &nbsp; / {vinData["mpg"]["highway"]} Highway
+//     </p>
+//   ) : (
+//     ""
+//   )}
+// </p>
+// <p>Engine Gas Type: {vinData["engine"]["type"]} </p>
+
+// {vinData["transmission"]["transmissionType"] ? (
+//   <p>
+//     Transmission: {vinData["transmission"]["transmissionType"]}
+//   </p>
+// ) : (
+//   ""
+// )}
+
+// <p>
+//   {/* {vinData.price.baseMsrp != null ? (
+//     <p>
+//       Starting MSRP: ${vinData.price.baseMsrp.toLocaleString()}
+//     </p>
+//   ) : (
+//     ""
+//   )} */}
+// </p>
+// </div>
+// </section>
+// <section>
+// <div
+// style={{
+//   display: "flex",
+//   flexDirection: "row",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   margin: "3.5rem 0",
+// }}
+// >
+// <div
+//   className={styles.ImgCards}
+//   style={{ margin: "0 1rem 0 0 " }}
+// >
+//   <Image
+//     src={nerd}
+//     alt="N"
+//     width={50}
+//     height={50}
+//     layout="fixed"
+//   />
+// </div>
+// <h2>Nerd Stats</h2>
+// </div>
+// <div className={` ${styles["styleCards"]}`}>
+// <p>
+//   Engine Layout: {vinData["engine"]["configuration"]}{" "}
+//   {vinData["engine"]["cylinder"]} Cylinders
+// </p>
+// <p>Gas Detail: {vinData["engine"]["fuelType"]}</p>
+// <p>Torque: {vinData["engine"]["torque"]}</p>
+// <p>Valves: {vinData["engine"]["totalValves"]}</p>
+// <p>
+//   Manufacturer Engine Code:
+//   {vinData["engine"]["manufacturerEngineCode"]}
+// </p>
+// <p>
+//   Compression Ratio: {vinData["engine"]["compressionRatio"]}
+// </p>
+// <p>Gears: {vinData["transmission"]["numberOfSpeeds"]}</p>
+// </div>
+// </section>
+// <h1 className={styles.headerGradient}>Extra Info</h1>
+// <div>
+// <div
+// style={{
+//   display: "flex",
+//   flexDirection: "row",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   margin: "3.5rem 0",
+// }}
+// >
+// <div
+//   className={styles.ImgCards}
+//   style={{ margin: "0 1rem 0 0" }}
+// >
+//   <Image
+//     src={color}
+//     alt="C"
+//     width={50}
+//     height={50}
+//     layout="fixed"
+//   />
+// </div>
+// <h2>Colors Options</h2>
+// </div>
+
+// {vinData.colors.map((color: any) => (
+// <div
+//   key={color.category}
+//   className={` ${styles["styleCards"]}`}
+// >
+//   <h3 style={{ textAlign: "center", marginBottom: "1rem" }}>
+//     {color.category}
+//   </h3>
+//   <ul className={` ${styles["row-list"]}`}>
+//     {color.options.map((option: any) => (
+//       <li key={option.id}>{option.name}</li>
+//     ))}
+//   </ul>
+// </div>
+// ))}
+
+// <div
+// style={{
+//   display: "flex",
+//   flexDirection: "row",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   margin: "3.5rem 0",
+// }}
+// >
+// <div
+//   className={styles.ImgCards}
+//   style={{ margin: "0 1rem 0 0" }}
+// >
+//   <Image
+//     src={trim}
+//     alt="T"
+//     width={50}
+//     height={50}
+//     layout="fixed"
+//   />
+// </div>
+// <h2>Trim Options</h2>
+// </div>
+// {vinData.years.map((year: any) => (
+// <div key={year.id} className={` ${styles["styleCards"]}`}>
+//   <ul
+//     className={` ${styles["row-list"]}`}
+//     style={{ flexDirection: "column" }}
+//   >
+//     {year.styles.map((style: any) => (
+//       <div key={style.id} style={{ paddingBottom: "1.5rem" }}>
+//         <h3 style={{ paddingBottom: "0.75rem" }}>
+//           Trim Name: {style.trim}
+//         </h3>
+//         <p>Style: {style.name}</p>
+//         <p>Body: {style.submodel.body}</p>
+//       </div>
+//     ))}
+//   </ul>
+// </div>
+// ))}
+// <ul>
+// {/* {vinData.options.map((Safety) => (
+//   <li>{Safety.name}</li>
+// ))} */}
+// </ul>
+// </div>
+// </div> */}
